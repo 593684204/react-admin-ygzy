@@ -23,13 +23,13 @@ import BasicAnimations from './animation/BasicAnimations';
 import ExampleAnimations from './animation/ExampleAnimations';
 import AuthBasic from './auth/Basic';
 import RouterEnter from './auth/RouterEnter';
-import Wysiwyg from 'bundle-loader?lazy!./ui/Wysiwyg';  // 按需加载富文本配置
+//import Wysiwyg from 'bundle-loader?lazy!./ui/Wysiwyg';  // 按需加载富文本配置
 import Bundle from './widget/Bundle';
 import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
 const WysiwygBundle = (props) => (
-    <Bundle load={Wysiwyg}>
+    <Bundle load={()=>import('./ui/Wysiwyg')}> {/*按需加载富文本配置*/}
         {(Component) => <Component {...props} />}
     </Bundle>
 );

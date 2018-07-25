@@ -1,8 +1,9 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import NotFound from './components/pages/NotFound';
-import Login from './components/pages/Login';
+//import Login from 'bundle-loader?lazy!./components/pages/Login';
 import App from './App';
+import Bundle from "./components/widget/Bundle";
 
 export default () => (
     <Router>
@@ -15,3 +16,8 @@ export default () => (
         </Switch>
     </Router>
 )
+const Login=(props)=>(
+    <Bundle load={() => import('./components/pages/Login')}>
+        {(Component)=><Component {...props} />}
+    </Bundle>
+);

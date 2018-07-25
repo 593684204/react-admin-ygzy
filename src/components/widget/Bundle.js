@@ -1,36 +1,45 @@
-import { Component } from 'react'
-
-class Bundle extends Component {
-  state = {
-    // short for "module" but that's a keyword in js, so "mod"
-    mod: null
-  }
-
-  componentWillMount() {
-    this.load(this.props)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.load !== this.props.load) {
-      this.load(nextProps)
+/**
+ *Created by qiaozm on 2018/7/25
+ * 接收一个组件异步加载的方法并返回对应的react组件
+ */
+import {Component} from 'react';
+export default class Bundle extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            mod:null
+        }
     }
-  }
 
-  load(props) {
-    this.setState({
-      mod: null
-    })
-    props.load((mod) => {
-      this.setState({
-        // handle both es imports and cjs
-        mod: mod.default ? mod.default : mod
-      })
-    })
-  }
+    componentWillMount() {
+        this.load(this.props);
+    }
 
-  render() {
-    return this.state.mod ? this.props.children(this.state.mod) : null
-  }
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.load!==this.props.load){
+            this.load(nextProps);
+        }
+    }
+
+    load(props){
+        this.setState({
+            mod:null
+        });
+        //注意这里，因import导入异步使用Promise对象; mod.default导出默认
+        props.load().then((mod)=>{
+            this.setState({
+                mod:mod.default?mod.default:mod
+            });
+        });
+        //使用bundle-loader导入使用-不需要异步
+        /*props.load((mod)=>{
+            this.setState({
+                mod:mod.default?mod.default:mod
+            });
+        });*/
+    }
+
+    render(){
+        return this.state.mod?this.props.children(this.state.mod):null;
+    }
 }
-
-export default Bundle;
