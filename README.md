@@ -1,4 +1,5 @@
 # 代码结构
+
 +-- build/                                  ---打包后文件目录
 +-- config/                                 ---npm run eject 后的配置文件目录
 +-- node_modules/                           ---package.json中所配置组件所有的依赖下载的目录
