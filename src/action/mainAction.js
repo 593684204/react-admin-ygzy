@@ -1,7 +1,7 @@
 /**
  *Created by qiaozm on 2018/7/24
  */
-import * as type from './type';
+import * as type from '../constants/type';
 import * as http from '../axios/index';
 
 const requestData = category => ({
@@ -9,9 +9,6 @@ const requestData = category => ({
     category
 });
 export function receiveData(data, category){
-    console.log('======');
-    console.log(data);
-    console.log(category);
     return {
         type: type.RECEIVE_DATA,
         data,

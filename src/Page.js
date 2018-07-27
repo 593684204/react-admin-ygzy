@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NotFound from './components/pages/NotFound';
 //import Login from 'bundle-loader?lazy!./components/pages/Login';
 import App from './App';
-import Bundle from "./components/widget/Bundle";
+import Bundle from "./routes/Bundle";
 
 export default () => (
     <Router>

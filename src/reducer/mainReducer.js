@@ -3,7 +3,7 @@
  * 首页reducer 处理首页的state变化
  */
 'use strict';
-import * as type from '../action/type';
+import * as type from '../constants/type';
 //初始状态
 const initialState={
     auth:{data: {}},

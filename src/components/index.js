@@ -24,7 +24,7 @@ import ExampleAnimations from './animation/ExampleAnimations';
 import AuthBasic from './auth/Basic';
 import RouterEnter from './auth/RouterEnter';
 //import Wysiwyg from 'bundle-loader?lazy!./ui/Wysiwyg';  // 按需加载富文本配置
-import Bundle from './widget/Bundle';
+import Bundle from '../routes/Bundle';
 import Cssmodule from './cssmodule';
 import MapUi from './ui/map';
 
