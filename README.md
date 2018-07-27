@@ -1,4 +1,4 @@
-代码结构
+# 代码结构
 +-- build/                                  ---打包后文件目录
 +-- config/                                 ---npm run eject 后的配置文件目录
 +-- node_modules/                           ---package.json中所配置组件所有的依赖下载的目录
@@ -57,7 +57,7 @@
 --- .eslintrc                               ---自定义eslint配置文件，包括增加的react jsx语法限制
 --- package.json
 
-ps:
+# ps:
 react-router4.0  路由管理 提供了导航功能的组件
 react-redux  用来统一管理项目中的数据状态（state）
 antd   react组件库
